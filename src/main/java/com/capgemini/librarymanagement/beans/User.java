@@ -1,5 +1,6 @@
 package com.capgemini.librarymanagement.beans;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,6 +20,8 @@ public class User {
 	private String password;
 	@Column
 	private String type;
+	
+	
 	public String getId() {
 		return id;
 	}

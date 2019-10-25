@@ -6,6 +6,8 @@ import com.capgemini.librarymanagement.beans.User;
 
 public interface AdminDao {
 	public Boolean registerLibrarian(User librarian);
+	
+	public User login(String id,String password);
 
 	public Boolean registerStudent(User student);
 

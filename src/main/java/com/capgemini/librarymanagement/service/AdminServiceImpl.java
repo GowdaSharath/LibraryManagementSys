@@ -7,10 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.capgemini.librarymanagement.beans.User;
 import com.capgemini.librarymanagement.dao.AdminDao;
+import com.capgemini.librarymanagement.dao.AdminDaoImpl;
 @Service
 public class AdminServiceImpl implements AdminService {
+	
 	@Autowired
-	private AdminDao dao;
+	 AdminDao dao=new AdminDaoImpl();
 	@Override
 	public Boolean registerLibrarian(User librarian) {
 		return dao.registerLibrarian(librarian);
@@ -49,6 +51,11 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public List<User> getAllStudent() {
 		return dao.getAllStudent();
+	}
+
+	@Override
+	public User login(String id, String password) {
+		return dao.login(id, password);
 	}
 	
 

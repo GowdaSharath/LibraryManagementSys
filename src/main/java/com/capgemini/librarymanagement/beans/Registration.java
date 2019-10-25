@@ -1,15 +1,18 @@
 package com.capgemini.librarymanagement.beans;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="books_registration")
 public class Registration {
+	@GeneratedValue
 	@Id
 	@Column(name="registration_id")
 	private String registrationid;

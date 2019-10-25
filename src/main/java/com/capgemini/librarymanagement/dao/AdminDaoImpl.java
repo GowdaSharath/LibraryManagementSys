@@ -9,11 +9,12 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.capgemini.librarymanagement.beans.User;
-
+@Repository
 public class AdminDaoImpl implements AdminDao {
-	@Autowired
+	
 	private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("TestPersistence");
 	private EntityManager entityManager;
 	private EntityTransaction transaction;
@@ -162,5 +163,24 @@ public class AdminDaoImpl implements AdminDao {
 		entityManager.close();
 		return isadded;
 	}
+
+	
+
+	@Override
+	public User login(String id, String password) {
+		entityManager = entityManagerFactory.createEntityManager();
+		String jpql="from User where id=:id  and password=:pw  and type='admin'" ;	
+		Query query=entityManager.createQuery(jpql);
+		query.setParameter( "id",id);
+		query.setParameter( "pw",password);
+		User admin=(User) query.getSingleResult();
+		if(admin!=null) {
+			return admin;
+		}else {
+			return null;	
+		}
+	}
+	
+	
 
 }

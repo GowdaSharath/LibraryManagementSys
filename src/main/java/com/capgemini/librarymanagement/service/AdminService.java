@@ -5,6 +5,8 @@ import java.util.List;
 import com.capgemini.librarymanagement.beans.User;
 
 public interface AdminService {
+	public User login(String id,String password);
+
 	public Boolean registerLibrarian(User librarian);
 
 	public Boolean registerStudent(User student);
